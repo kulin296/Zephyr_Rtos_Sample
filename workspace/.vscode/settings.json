@@ -1,0 +1,11 @@
+{
+    // Hush CMake
+    "cmake.configureOnOpen": false,
+    "cmake.ignoreCMakeListsMissing": true,
+    // IntelliSense
+    "C_Cpp.default.compilerPath": "/opt/zephyr-sdk-0.16.8/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc",
+    "C_Cpp.default.compileCommands": "${workspaceFolder}/apps/VenusFw/build/compile_commands.json",
+    "C_Cpp.codeAnalysis.clangTidy.enabled": true,
+    "gdbTarget": "172.17.0.1:2331",
+    "cmake.sourceDirectory": "/workspace/apps/VenusFw",
+}

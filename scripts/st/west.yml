@@ -1,0 +1,46 @@
+manifest:
+  defaults:
+    remote: upstream
+
+  remotes:
+    - name: upstream
+      url-base: https://github.com/zephyrproject-rtos
+
+  group-filter: [-optional]
+
+  #
+  # Please add items below based on alphabetical order
+  projects:
+    - name: cmsis
+      revision: d1b8b20b6278615b00e136374540eb1c00dcabe7
+      path: modules/hal/cmsis
+      groups:
+        - hal
+    - name: hal_stm32
+      revision: 5dcc08c119d421fec7d67555fc7b0aa220288e56
+      path: modules/hal/stm32
+      groups:
+        - hal
+    - name: hal_st
+      revision: 05fd4533730a9aea845261c5d24ed9832a6f0b6e
+      path: modules/hal/st
+      groups:
+        - hal
+    - name: lvgl
+      revision: 2b498e6f36d6b82ae1da12c8b7742e318624ecf5
+      path: modules/lib/gui/lvgl
+    - name: mcuboot
+      revision: b9d69dd2a2d6df32da6608d549138288bb7d7aa5
+      path: bootloader/mcuboot
+      groups:
+        - bootloader
+    - name: net-tools
+      revision: 93acc8bac4661e74e695eb1aea94c7c5262db2e2
+      path: tools/net-tools
+      groups:
+        - tools
+
+  self:
+    path: zephyr
+    west-commands: scripts/west-commands.yml
+    import: submanifests

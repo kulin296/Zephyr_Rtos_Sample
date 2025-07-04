@@ -1,0 +1,48 @@
+{
+    "configurations": [
+        {
+            "name": "Venus Debug Remote",
+            "cwd": "${workspaceFolder}",
+            "device": "STM32U5A5ZJ",
+            "executable": "${workspaceFolder}/apps/VenusFw/build/zephyr/zephyr.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            "runToEntryPoint": "main",
+            "servertype": "external",
+            "liveWatch": {
+                "enabled": true,
+                "samplesPerSecond": 4
+            },
+            "gdbTarget": "${config:gdbTarget}",
+            "rttConfig": {
+                "enabled": true,
+                "address": "auto",
+                "decoders": [
+                    {
+                        "label": "",
+                        "port": 0,
+                        "type": "console"
+                    }
+                ]
+            },
+            "preLaunchCommands": [
+                "interpreter-exec console \"monitor reset 2\"",
+                "interpreter-exec console \"monitor halt\"",
+                "interpreter-exec console \"load\""
+            ],
+            "rtos": "Zephyr",
+            "svdFile": "${workspaceFolder}/boards/st/venus/STM32A5xx.svd", 
+            "armToolchainPath": "/opt/toolchains/zephyr-sdk-0.16.8/arm-zephyr-eabi/bin",
+            "gdbPath": "/opt/toolchains/zephyr-sdk-0.16.8/arm-zephyr-eabi/bin/arm-zephyr-eabi-gdb",
+            "showDevDebugOutput": "raw"
+        }
+    ],
+    "inputs": [
+        {
+            "id": "gdbtarget",
+            "type": "promptString",
+            "default": "127.0.0.1",
+            "description": "IP Address of the host running JLinkGDBServer"
+        }
+    ]
+}
