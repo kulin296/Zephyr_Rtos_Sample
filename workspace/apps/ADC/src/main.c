@@ -42,12 +42,13 @@ static struct adc_sequence sequence = {
     .buffer_size = sizeof(adc_raw_value),
     .resolution  = ADC_RESOLUTION,
 };
-int map(int n,int in_min,int in_max,int op_min,int op_max)
-{
-    int op;
-    op=(((n-in_min)*(op_max-op_min)) / (in_max-in_min)) + op_min;
-    return op;
-}
+/*Optional Map Function*/
+// int map(int n,int in_min,int in_max,int op_min,int op_max)
+// {
+//     int op;
+//     op=(((n-in_min)*(op_max-op_min)) / (in_max-in_min)) + op_min;
+//     return op;
+// }
 void main(void)
 {
     //unsigned int op;
@@ -77,10 +78,6 @@ void main(void)
             // Raw ADC value is available in adc_raw_value
             printk("ADC_1 Channel %d raw value: %d\n", ADC_CHANNEL_ID, adc_raw_value);
             //printk("ADC_1 Channel %d raw value: %d\n", ADC_CHANNEL_ID, op);
-
-            // If you want to convert to voltage (assuming 3.3V reference and 12-bit resolution)
-            //  int voltage = (float)adc_raw_value * 3.3f / (1 << ADC_RESOLUTION);
-            //  printk("ADC_1 Channel %d voltage: %d V\n\n", ADC_CHANNEL_ID, voltage);
         }
 
         k_sleep(K_MSEC(1000)); // Read every 1 second
